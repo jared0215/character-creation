@@ -5,9 +5,9 @@ const houseSchema = new mongoose.Schema(
         coatOfArms: {
             type: String,
             required: true,
-            trim: true, // Ensures the string is trimmed of any leading or trailing whitespace
+            trim: true,
         },
-        titles: [String], // Changed to an array to accommodate multiple titles
+        titles: [String],
         seat: {
             type: String,
             required: true,
@@ -21,25 +21,25 @@ const houseSchema = new mongoose.Schema(
         head: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Character",
-            default: null, // Made optional with a default of null
+            default: null,
         },
         heir: {
             type: mongoose.Schema.Types.ObjectId,
             ref: "Character",
-            default: null, // Optional
+            default: null,
         },
         overlords: [
             {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "House",
             },
-        ], // Array of references, optional
+        ],
         vassals: [
             {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "House",
             },
-        ], // Optional
+        ],
         religion: {
             type: String,
             required: true,
@@ -49,7 +49,7 @@ const houseSchema = new mongoose.Schema(
             type: Date,
             required: true,
             validate: {
-                validator: (value) => value <= new Date(), // Validate that the founded date is not in the future
+                validator: (value) => value <= new Date(),
                 message: "Founded date cannot be in the future.",
             },
         },
