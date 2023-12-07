@@ -51,12 +51,6 @@ const characterSchema = new mongoose.Schema(
             ref: "Family", // Reference to Family model
             default: null,
         },
-        affiliations: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Affiliate", // Reference to Affiliate model
-            },
-        ],
         age: Number,
         skills: [String],
         traits: [String],
